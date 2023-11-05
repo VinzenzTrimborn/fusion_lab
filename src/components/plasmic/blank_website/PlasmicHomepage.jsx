@@ -82,7 +82,19 @@ function PlasmicHomepage__RenderFunc(props) {
                 sty.text
               )}
             >
-              {"This is our Team:\nVinzenz\nLelino\nMohammad\n\u00c7eltina"}
+              <React.Fragment>
+                <React.Fragment>
+                  {
+                    "This is our Team:\nVinzenz\nLelino\nMohammad\n\u00c7eltina\n"
+                  }
+                </React.Fragment>
+                <span
+                  className={"plasmic_default__all plasmic_default__span"}
+                  style={{ fontWeight: 700 }}
+                >
+                  {"Koray"}
+                </span>
+              </React.Fragment>
             </div>
           </section>
         </div>
