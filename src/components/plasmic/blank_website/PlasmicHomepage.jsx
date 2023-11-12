@@ -16,6 +16,8 @@ import {
   createPlasmicElementProxy,
   deriveRenderOpts
 } from "@plasmicapp/react-web";
+import GltfView from "../../GltfView"; // plasmic-import: 2gypwESdRVuN/component
+import LoginForm from "../../LoginForm"; // plasmic-import: HjfJuIh2iwlp/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_blank_website.module.css"; // plasmic-import: adU29zJd9uLGW9TewABBsV/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: 0kTnIak9Ggez/css
@@ -71,7 +73,7 @@ function PlasmicHomepage__RenderFunc(props) {
                 sty.h1
               )}
             >
-              {"Welcome Fusion Lab"}
+              {"Welcome to Fusion Lab"}
             </h1>
             <div
               data-plasmic-name={"text"}
@@ -83,20 +85,29 @@ function PlasmicHomepage__RenderFunc(props) {
               )}
             >
               <React.Fragment>
-                <React.Fragment>
-                  {
-                    "This is our Team:\nVinzenz\nLelino\nMohammad\n\u00c7eltina\n"
-                  }
-                </React.Fragment>
                 <span
                   className={"plasmic_default__all plasmic_default__span"}
                   style={{ fontWeight: 700 }}
                 >
-                  {"Koray"}
+                  {"This is our Team (Group C)"}
                 </span>
+                <React.Fragment>
+                  {"\nVinzenz\nLelino\nMohammad\n\u00c7eltina\nKoray"}
+                </React.Fragment>
               </React.Fragment>
             </div>
           </section>
+          <GltfView
+            data-plasmic-name={"gltfView"}
+            data-plasmic-override={overrides.gltfView}
+            className={classNames("__wab_instance", sty.gltfView)}
+          />
+
+          <LoginForm
+            data-plasmic-name={"loginForm"}
+            data-plasmic-override={overrides.loginForm}
+            className={classNames("__wab_instance", sty.loginForm)}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -104,10 +115,12 @@ function PlasmicHomepage__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "h1", "text"],
+  root: ["root", "section", "h1", "text", "gltfView", "loginForm"],
   section: ["section", "h1", "text"],
   h1: ["h1"],
-  text: ["text"]
+  text: ["text"],
+  gltfView: ["gltfView"],
+  loginForm: ["loginForm"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -116,7 +129,7 @@ function makeNodeComponent(nodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicHomepage__ArgProps,
           internalVariantPropNames: PlasmicHomepage__VariantProps
         }),
@@ -145,6 +158,8 @@ export const PlasmicHomepage = Object.assign(
     section: makeNodeComponent("section"),
     h1: makeNodeComponent("h1"),
     text: makeNodeComponent("text"),
+    gltfView: makeNodeComponent("gltfView"),
+    loginForm: makeNodeComponent("loginForm"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,
